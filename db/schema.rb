@@ -27,10 +27,15 @@ ActiveRecord::Schema.define(version: 20160507063643) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "role",                   default: "", null: false
+    t.string   "auth_token",             default: ""
+    t.string   "platform",               default: ""
+    t.string   "notification_token",     default: ""
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
 
+  add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
