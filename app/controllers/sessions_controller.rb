@@ -1,4 +1,4 @@
-class SessionsController < ActionController::Base
+class SessionsController < ApplicationController
   before_action :authenticate_with_token!, only: [:destroy]
 
   def create

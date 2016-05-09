@@ -13,6 +13,12 @@ agent = FactoryGirl.create(:user,
                            role: "agent")
 
 actor = FactoryGirl.create(:user,
-                           email: "a.lister@cwb.com",
+                           email: "alister@cwb.com",
                            password: "password",
                            role: "actor")
+
+project = FactoryGirl.create(:project,
+                             user_id: agent.id,
+                             title: "Batman Returns",
+                             director: "Jeff Rose",
+                             roles: ["Batman", "Robin"])
