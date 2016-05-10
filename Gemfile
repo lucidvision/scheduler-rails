@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# The Basics
 gem 'rails', '4.2.5.1'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.1.0'
 
 # Databases
 gem 'pg'
@@ -14,7 +17,9 @@ gem 'devise'
 # Seeding
 gem 'factory_girl_rails'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+# JavaScript
+gem 'jquery-rails'
+gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
 # bundle exec rake doc:rails generates the API under doc/api.
