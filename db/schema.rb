@@ -18,7 +18,9 @@ ActiveRecord::Schema.define(version: 20160509235905) do
 
   create_table "auditions", force: :cascade do |t|
     t.integer  "project_id"
+    t.integer  "user_id"
     t.string   "actor"
+    t.string   "role"
     t.string   "phone"
     t.string   "date"
     t.string   "time"
@@ -29,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160509235905) do
   end
 
   add_index "auditions", ["project_id"], name: "index_auditions_on_project_id", using: :btree
+  add_index "auditions", ["user_id"], name: "index_auditions_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.integer  "user_id"
@@ -53,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160509235905) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "name",                   default: ""
     t.string   "role",                   default: "", null: false
     t.string   "auth_token",             default: ""
     t.string   "platform",               default: ""

@@ -2,6 +2,7 @@ class CreateAuditions < ActiveRecord::Migration
   def change
     create_table :auditions do |t|
       t.belongs_to :project, index: true
+      t.belongs_to :user, index: true
       t.string :actor
       t.string :role
       t.string :phone

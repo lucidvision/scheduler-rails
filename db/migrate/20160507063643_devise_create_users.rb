@@ -31,6 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       # User Info
+      t.string :name,               default: ""
       t.string :role,               null: false, default: ""
       t.string :auth_token,         default: ""
       t.string :platform,           default: ""
