@@ -1,11 +1,4 @@
 require 'factory_girl_rails'
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
 agent = FactoryGirl.create(:user,
                            email: "secret.agent@cwb.com",
@@ -27,6 +20,15 @@ project = FactoryGirl.create(:project,
 audition = FactoryGirl.create(:audition,
                               project_id: project.id,
                               actor: "Brad Pitt",
+                              role: "Batman",
                               phone: "7777777",
                               date: "Monday Apr 25",
                               time: "3:50pm")
+
+audition2 = FactoryGirl.create(:audition,
+                               project_id: project.id,
+                               actor: "Christian Bale",
+                               role: "Batman",
+                               phone: "7777777",
+                               date: "Monday Apr 25",
+                               time: "4:00pm")
