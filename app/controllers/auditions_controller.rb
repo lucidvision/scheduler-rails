@@ -7,7 +7,7 @@ class AuditionsController < ApplicationController
     if user.role == 'agent'
       render json: user.projects.find(params[:project_id]).auditions
     else
-      render json: user.auditions
+      render json: user.auditions.where("status is NOT NULL and status != ''")
     end
   end
 
