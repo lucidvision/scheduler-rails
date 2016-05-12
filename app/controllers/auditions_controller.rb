@@ -2,7 +2,13 @@ class AuditionsController < ApplicationController
   before_action :authenticate_with_token!, only: [:index, :update]
 
   def index
-    render json: current_user.projects.find(params[:project_id]).auditions
+    user = current_user
+
+    if user.role == 'agent'
+      render json: user.projects.find(params[:project_id]).auditions
+    else
+      render json: user.auditions
+    end
   end
 
   def update
