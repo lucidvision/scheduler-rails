@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160509235905) do
   create_table "auditions", force: :cascade do |t|
     t.integer  "project_id"
     t.integer  "user_id"
+    t.string   "title"
     t.string   "actor"
     t.string   "role"
     t.string   "phone"
