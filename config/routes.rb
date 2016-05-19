@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   end
   resources :auditions, only: [:index, :update] do
     put 'update_status', on: :collection
+
+    resources :histories, only: [:index, :create]
   end
 end
