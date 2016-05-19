@@ -11,6 +11,9 @@ class ProjectsController < ApplicationController
         audition.status = ""
         audition.response = ""
         audition.save
+
+        audition.histories.delete_all
+        audition.histories.create(action: "Casting creates audition.")
       end
     end
 

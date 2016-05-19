@@ -28,3 +28,7 @@ audition = FactoryGirl.create(:audition,
                               phone: "7777777",
                               date: "Monday Apr 25",
                               time: "3:50pm")
+
+history = FactoryGirl.create(:history,
+                             audition_id: audition.id,
+                             action: "Casting creates audition.")
