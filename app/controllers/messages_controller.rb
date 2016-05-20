@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   def index
     user = current_user
 
-    if user.role = 'agent'
+    if user.role == 'agent'
       @messages = user.projects.find(params[:project_id]).auditions.find(params[:audition_id]).messages
     else
       @messages = user.auditions.find(params[:audition_id]).messages
@@ -14,16 +14,16 @@ class MessagesController < ApplicationController
   def create
     user = current_user
 
-    if user.role = 'agent'
+    if user.role == 'agent'
       @messages = user.projects.find(params[:project_id]).auditions.find(params[:audition_id]).messages
     else
       @messages = user.auditions.find(params[:audition_id]).messages
     end
 
-    if @message.create(message_params)
+    if @messages.create(message_params)
       render "index", status: 200
     else
-      render json: { errors: @message.errors }, status: 422
+      render json: { errors: @messages.errors }, status: 422
     end
   end
 

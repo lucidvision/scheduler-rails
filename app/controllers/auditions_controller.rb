@@ -5,9 +5,9 @@ class AuditionsController < ApplicationController
     user = current_user
 
     if user.role == 'agent'
-      render json: user.projects.find(params[:project_id]).auditions
+      render json: user.projects.find(params[:project_id]).auditions.reverse
     else
-      render json: user.auditions.where("status is NOT NULL and status != ''")
+      render json: user.auditions.where("status is NOT NULL and status != ''").reverse
     end
   end
 
@@ -25,7 +25,7 @@ class AuditionsController < ApplicationController
 
     if audition.update(audition_params)
       audition.histories.create(action: action)
-      render json: user.auditions, status: 200
+      render json: user.auditions.reverse, status: 200
     else
       render json: { errors: audition.errors }, status: 422
     end
@@ -72,7 +72,7 @@ class AuditionsController < ApplicationController
       audition.save
     end
 
-    render json: user.projects.find(params[:project_id]).auditions, status: 200
+    render json: user.projects.find(params[:project_id]).auditions.reverse, status: 200
   end
 
   private

@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
         audition.save
 
         audition.histories.delete_all
+        audition.messages.delete_all
         audition.histories.create(action: "Casting creates audition.")
       end
     end
