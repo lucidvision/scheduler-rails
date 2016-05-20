@@ -11,7 +11,7 @@ class HistoriesController < ApplicationController
     if @history.create(history_params)
       render "index", status: 200
     else
-      render json: { errors: history.errors }, status: 422
+      render json: { errors: @history.errors }, status: 422
     end
   end
 

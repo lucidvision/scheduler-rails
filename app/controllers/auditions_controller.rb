@@ -62,7 +62,9 @@ class AuditionsController < ApplicationController
         elsif params[:status] == 'TIME'
           action = "Set audition status to Alternative Time."
         elsif params[:status] == 'REGR'
-          action = "Set audition statusw to Regret."
+          action = "Set audition status to Regret."
+        elsif params[:status] == 'CALL'
+          action = "Called the Actor."
         end
         audition.histories.create(action: action)
 

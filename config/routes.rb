@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     put 'update_status', on: :collection
 
     resources :histories, only: [:index, :create]
+    resources :messages, only: [:index, :create]
   end
 end
