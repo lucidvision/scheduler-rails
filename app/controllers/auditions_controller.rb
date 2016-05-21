@@ -25,7 +25,7 @@ class AuditionsController < ApplicationController
 
     if audition.update(audition_params)
       audition.histories.create(action: action)
-      render json: user.auditions.reverse, status: 200
+      render json: user.auditions.where("status is NOT NULL and status != ''").reverse, status: 200
     else
       render json: { errors: audition.errors }, status: 422
     end
