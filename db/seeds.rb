@@ -2,7 +2,7 @@ require 'factory_girl_rails'
 
 agent = FactoryGirl.create(:user,
                            email: "secret.agent@cwb.com",
-                           name: "James Bond",
+                           name: "Shari Caldwell",
                            password: "password",
                            role: "agent")
 
