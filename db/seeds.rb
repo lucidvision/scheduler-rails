@@ -43,7 +43,7 @@ project2 = FactoryGirl.create(:project,
 project3 = FactoryGirl.create(:project,
                               user_id: agent.id,
                               title: "Murdoch Mysteries: Concocting a Killer",
-                              director: "Andrea Kenyon",
+                              director: "Diane Kerbel",
                               phone: "6043497242",
                               roles: ["Miss Hanover"])
 
