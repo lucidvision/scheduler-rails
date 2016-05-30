@@ -21,7 +21,7 @@ actors = [
 actors.each do |user|
   actor = FactoryGirl.create(:user,
                              email: "#{ user[0] }.#{ user[1] }@cwb.com",
-                             name: user,
+                             name: "#{ user[0] } #{ user[1] }",
                              password: "password",
                              role: "actor")
 end
