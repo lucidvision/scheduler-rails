@@ -25,6 +25,11 @@ class AuditionsController < ApplicationController
 
     if audition.update(audition_params)
       audition.histories.create(action: action)
+
+      agent = audition.project.user
+      token = [agent.notification_token]
+      create_notification(user.platform, token, "Audition Update", "Actor has responded")
+
       render json: user.auditions.where("status is NOT NULL and status != ''").reverse, status: 200
     else
       render json: { errors: audition.errors }, status: 422
@@ -34,8 +39,16 @@ class AuditionsController < ApplicationController
   def update_status
     user = current_user
 
+    android_tokens = Array.new
+    ios_tokens = Array.new
     params[:selected].each do |audition_id|
       audition = Audition.find(audition_id)
+
+      if user.platform == "android"
+        android_tokens.push(user.notification_token)
+      elsif user.platform == "ios"
+        ios_tokens.push(user.notification_token)
+      end
 
       if params[:status] == 'CAST'
         if audition.status == 'CONF'
@@ -67,9 +80,15 @@ class AuditionsController < ApplicationController
           action = "Called the Actor."
         end
         audition.histories.create(action: action)
-
       end
       audition.save
+    end
+
+    if android_tokens.length > 0
+      create_notification("android", android_tokens, "Audition Update", "An audition has been updated")
+    end
+    if ios_tokens.length > 0
+      create_notification("ios", ios_tokens, "Audition Update", "An audition has been updated")
     end
 
     render json: user.projects.find(params[:project_id]).auditions.reverse, status: 200
