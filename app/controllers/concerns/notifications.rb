@@ -23,16 +23,15 @@ module Notifications
         app.apns_prod_cert = File.read("config/Certificates.pem")
         app.sandbox_mode = false
 
-        byebug
         if app.save
           notification = app.notifications.build(
             destinations: tokens,
             data: { aps: { alert: { title: title, body: message }, sound: 'true', badge: 1 } }
           )
-        end
 
-        if notification.save
-          app.push_notifications
+          if notification.save
+            app.push_notifications
+          end
         end
       end
     end
