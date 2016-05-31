@@ -20,8 +20,10 @@ module Notifications
       elsif platform == "ios"
         app = RailsPushNotifications::APNSApp.new
         app.apns_dev_cert = File.read("config/Certificates.pem")
+        app.apns_prod_cert = File.read("config/Certificates.pem")
         app.sandbox_mode = false
 
+        byebug
         if app.save
           notification = app.notifications.build(
             destinations: tokens,
