@@ -21,7 +21,7 @@ module Notifications
         app = RailsPushNotifications::APNSApp.new
         app.apns_dev_cert = File.read("config/Certificates.pem")
         app.apns_prod_cert = File.read("config/Certificates.pem")
-        app.sandbox_mode = false
+        app.sandbox_mode = true
 
         if app.save
           notification = app.notifications.build(

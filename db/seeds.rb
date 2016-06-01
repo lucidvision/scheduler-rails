@@ -29,7 +29,7 @@ end
 project1 = FactoryGirl.create(:project,
                              user_id: agent.id,
                              title: "Vikings",
-                             director: "Deirdre Brown",
+                             director: "Deirdre Bowen",
                              phone: "6043497242",
                              roles: ["Ubbe", "Boneless"])
 

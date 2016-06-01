@@ -28,7 +28,7 @@ class AuditionsController < ApplicationController
 
       agent = audition.project.user
       token = [agent.notification_token]
-      create_notification(user.platform, token, "Audition Update", "Actor has responded")
+      create_notification(agent.platform, token, "Audition Update", "Actor has responded")
 
       render json: user.auditions.where("status is NOT NULL and status != ''").reverse, status: 200
     else
@@ -43,11 +43,12 @@ class AuditionsController < ApplicationController
     ios_tokens = Array.new
     params[:selected].each do |audition_id|
       audition = Audition.find(audition_id)
+      actor = audition.user
 
-      if user.platform == "android"
-        android_tokens.push(user.notification_token)
-      elsif user.platform == "ios"
-        ios_tokens.push(user.notification_token)
+      if actor.platform == "android"
+        android_tokens.push(actor.notification_token)
+      elsif actor.platform == "ios"
+        ios_tokens.push(actor.notification_token)
       end
 
       if params[:status] == 'CAST'
