@@ -10,7 +10,7 @@ module Notifications
         if app.save
           notification = app.notifications.build(
             destinations: tokens,
-            notification: { title: title, body: message }
+            data: { title: title, message: message }
           )
 
           if notification.save
