@@ -16,11 +16,11 @@ class AuditionsController < ApplicationController
     audition = user.auditions.find(params[:id])
 
     if params[:audition][:status] == 'CONF'
-      action = "Actor responds with Confirm."
+      action = "#{user.name} responds with Confirm."
     elsif params[:audition][:status] == 'TIME'
-      action = "Actor responds with Alternative Time."
+      action = "#{user.name} responds with Alternative Time."
     elsif params[:audition][:status] == 'REGR'
-      action = "Actor responds with Regret."
+      action = "#{user.name} responds with Regret."
     end
 
     if audition.update(audition_params)
@@ -52,15 +52,16 @@ class AuditionsController < ApplicationController
       end
 
       if params[:status] == 'CAST'
+        director = audition.project.director
         if audition.status == 'CONF'
           audition.response = 'confirm'
-          action = "Forwarded Confirm to Casting."
+          action = "Forwarded Confirm to #{director}."
         elsif audition.status == 'TIME'
           audition.response = 'time'
-          action = "Forwarded Alternative Time to Casting."
+          action = "Forwarded Alternative Time to #{director}."
         elsif audition.status == 'REGR'
           audition.response = 'regret'
-          action = "Forwarded Regret to Casting."
+          action = "Forwarded Regret to #{director}."
         end
         audition.histories.create(action: action)
 
@@ -68,17 +69,17 @@ class AuditionsController < ApplicationController
         audition.status = params[:status]
 
         if params[:status] == 'SENT'
-          action = "Sent audition request to Actor."
+          action = "Sent audition request to #{actor.name}."
         elsif params[:status] == 'SENT+'
-          action = "Sent audition request plus materials to Actor."
+          action = "Sent audition request plus materials to #{actor.name}."
         elsif params[:status] == 'CONF'
-          action = "Set audition status to Confirm."
+          action = "#{user.name} set audition status to Confirm."
         elsif params[:status] == 'TIME'
-          action = "Set audition status to Alternative Time."
+          action = "#{user.name} audition status to Alternative Time."
         elsif params[:status] == 'REGR'
-          action = "Set audition status to Regret."
+          action = "#{user.name} audition status to Regret."
         elsif params[:status] == 'CALL'
-          action = "Called the Actor."
+          action = "Called #{actor.name}."
         end
         audition.histories.create(action: action)
       end
