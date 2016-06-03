@@ -26,7 +26,7 @@ module Notifications
         if app.save
           notification = app.notifications.build(
             destinations: tokens,
-            data: { aps: { alert: { title: title, message: message }, sound: 'true', badge: 1 } }
+            data: { aps: { alert: { title: title, body: message }, sound: 'true', badge: 1 } }
           )
 
           if notification.save
