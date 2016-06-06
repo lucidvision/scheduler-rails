@@ -5,9 +5,9 @@ class AuditionsController < ApplicationController
     user = current_user
 
     if user.role == 'agent'
-      render json: user.projects.find(params[:project_id]).auditions.reverse
+      render json: user.projects.find(params[:project_id]).auditions.order(:time)
     else
-      render json: user.auditions.where("status is NOT NULL and status != ''").reverse
+      render json: user.auditions.where("status is NOT NULL and status != ''").order(:time)
     end
   end
 
@@ -30,7 +30,7 @@ class AuditionsController < ApplicationController
       token = [agent.notification_token]
       create_notification(agent.platform, token, "Audition Update", "Actor has responded")
 
-      render json: user.auditions.where("status is NOT NULL and status != ''").reverse, status: 200
+      render json: user.auditions.where("status is NOT NULL and status != ''").order(:time), status: 200
     else
       render json: { errors: audition.errors }, status: 422
     end
@@ -44,12 +44,6 @@ class AuditionsController < ApplicationController
     params[:selected].each do |audition_id|
       audition = Audition.find(audition_id)
       actor = audition.user
-
-      if actor.platform == "android"
-        android_tokens.push(actor.notification_token)
-      elsif actor.platform == "ios"
-        ios_tokens.push(actor.notification_token)
-      end
 
       if params[:status] == 'CAST'
         director = audition.project.director
@@ -73,15 +67,24 @@ class AuditionsController < ApplicationController
         elsif params[:status] == 'SENT+'
           action = "Sent audition request plus materials to #{actor.name}."
         elsif params[:status] == 'CONF'
+          audition.response = 'confirm'
           action = "#{user.name} set audition status to Confirm."
         elsif params[:status] == 'TIME'
+          audition.response = 'time'
           action = "#{user.name} audition status to Alternative Time."
         elsif params[:status] == 'REGR'
+          audition.response = 'regret'
           action = "#{user.name} audition status to Regret."
         elsif params[:status] == 'CALL'
           action = "Called #{actor.name}."
         end
         audition.histories.create(action: action)
+
+        if actor.platform == "android"
+          android_tokens.push(actor.notification_token)
+        elsif actor.platform == "ios"
+          ios_tokens.push(actor.notification_token)
+        end
       end
       audition.save
     end
@@ -93,7 +96,7 @@ class AuditionsController < ApplicationController
       create_notification("ios", ios_tokens, "Audition Update", "An audition has been updated")
     end
 
-    render json: user.projects.find(params[:project_id]).auditions.reverse, status: 200
+    render json: user.projects.find(params[:project_id]).auditions.order(:time), status: 200
   end
 
   private
