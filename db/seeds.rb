@@ -54,7 +54,7 @@ audition1 = FactoryGirl.create(:audition,
                                title: project1.title,
                                role: "Ubbe",
                                phone: "6043497242",
-                               date: "Monday Apr 25",
+                               date: "Monday June 25",
                                time: "3:50pm")
 
 history = FactoryGirl.create(:history,
@@ -68,7 +68,7 @@ audition2 = FactoryGirl.create(:audition,
                                title: project1.title,
                                role: "Ubbe",
                                phone: "6043497242",
-                               date: "Monday Apr 25",
+                               date: "Monday June 25",
                                time: "4:00pm")
 
 history = FactoryGirl.create(:history,
@@ -82,7 +82,7 @@ audition3 = FactoryGirl.create(:audition,
                                title: project1.title,
                                role: "Boneless",
                                phone: "6043497242",
-                               date: "Monday Apr 25",
+                               date: "Monday June 25",
                                time: "4:10pm")
 
 history = FactoryGirl.create(:history,
@@ -96,7 +96,7 @@ audition4 = FactoryGirl.create(:audition,
                                title: project1.title,
                                role: "Boneless",
                                phone: "6043497242",
-                               date: "Monday Apr 25",
+                               date: "Monday June 25",
                                time: "4:20pm")
 
 history = FactoryGirl.create(:history,
@@ -110,7 +110,7 @@ audition5 = FactoryGirl.create(:audition,
                               title: project2.title,
                               role: "Dan Berlin",
                               phone: "6043497242",
-                              date: "Monday Apr 28",
+                              date: "Monday June 28",
                               time: "4:20pm")
 
 history = FactoryGirl.create(:history,
@@ -124,7 +124,7 @@ audition6 = FactoryGirl.create(:audition,
                                title: project2.title,
                                role: "Dan Berlin",
                                phone: "6043497242",
-                               date: "Monday Apr 25",
+                               date: "Monday June 25",
                                time: "4:30pm")
 
 history = FactoryGirl.create(:history,
@@ -138,7 +138,7 @@ audition7 = FactoryGirl.create(:audition,
                               title: project2.title,
                               role: "Marshall Freed",
                               phone: "6043497242",
-                              date: "Monday Apr 25",
+                              date: "Monday June 25",
                               time: "4:40pm")
 
 history = FactoryGirl.create(:history,
@@ -152,7 +152,7 @@ audition8 = FactoryGirl.create(:audition,
                                title: project2.title,
                                role: "Marshall Freed",
                                phone: "6043497242",
-                               date: "Monday Apr 25",
+                               date: "Monday June 25",
                                time: "4:50pm")
 
 history = FactoryGirl.create(:history,
@@ -166,7 +166,7 @@ audition9 = FactoryGirl.create(:audition,
                                title: project3.title,
                                role: "Miss Hanover",
                                phone: "6043497242",
-                               date: "Monday Apr 25",
+                               date: "Monday June 25",
                                time: "5:00pm")
 
 history = FactoryGirl.create(:history,
@@ -180,7 +180,7 @@ audition10 = FactoryGirl.create(:audition,
                                 title: project3.title,
                                 role: "Miss Hanover",
                                 phone: "6043497242",
-                                date: "Monday Apr 25",
+                                date: "Monday June 25",
                                 time: "5:10pm")
 
 history = FactoryGirl.create(:history,
