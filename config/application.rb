@@ -27,4 +27,3 @@ module SchedulerRails
     config.active_record.default_timezone = :local
   end
 end
-å
