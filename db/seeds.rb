@@ -59,7 +59,7 @@ audition1 = FactoryGirl.create(:audition,
 
 history = FactoryGirl.create(:history,
                              audition_id: audition1.id,
-                             action: "Deirdre Bowen creates audition.")
+                             action: "Deirdre Bowen sent request.")
 
 audition2 = FactoryGirl.create(:audition,
                                project_id: project1.id,
@@ -73,7 +73,7 @@ audition2 = FactoryGirl.create(:audition,
 
 history = FactoryGirl.create(:history,
                              audition_id: audition2.id,
-                             action: "Deirdre Bowen creates audition.")
+                             action: "Deirdre Bowen sent request.")
 
 audition3 = FactoryGirl.create(:audition,
                                project_id: project1.id,
@@ -87,7 +87,7 @@ audition3 = FactoryGirl.create(:audition,
 
 history = FactoryGirl.create(:history,
                              audition_id: audition3.id,
-                             action: "Deirdre Bowen creates audition.")
+                             action: "Deirdre Bowen sent request.")
 
 audition4 = FactoryGirl.create(:audition,
                                project_id: project1.id,
@@ -101,7 +101,7 @@ audition4 = FactoryGirl.create(:audition,
 
 history = FactoryGirl.create(:history,
                              audition_id: audition4.id,
-                             action: "Deirdre Bowen creates audition.")
+                             action: "Deirdre Bowen sent request.")
 
 audition5 = FactoryGirl.create(:audition,
                               project_id: project2.id,
@@ -115,7 +115,7 @@ audition5 = FactoryGirl.create(:audition,
 
 history = FactoryGirl.create(:history,
                             audition_id: audition5.id,
-                            action: "Andrea Kenyon creates audition.")
+                            action: "Andrea Kenyon sent request.")
 
 audition6 = FactoryGirl.create(:audition,
                                project_id: project2.id,
@@ -129,7 +129,7 @@ audition6 = FactoryGirl.create(:audition,
 
 history = FactoryGirl.create(:history,
                              audition_id: audition6.id,
-                             action: "Andrea Kenyon creates audition.")
+                             action: "Andrea Kenyon sent request.")
 
 audition7 = FactoryGirl.create(:audition,
                               project_id: project2.id,
@@ -143,7 +143,7 @@ audition7 = FactoryGirl.create(:audition,
 
 history = FactoryGirl.create(:history,
                             audition_id: audition7.id,
-                            action: "Andrea Kenyon creates audition.")
+                            action: "Andrea Kenyon sent request.")
 
 audition8 = FactoryGirl.create(:audition,
                                project_id: project2.id,
@@ -157,7 +157,7 @@ audition8 = FactoryGirl.create(:audition,
 
 history = FactoryGirl.create(:history,
                              audition_id: audition8.id,
-                             action: "Andrea Kenyon creates audition.")
+                             action: "Andrea Kenyon sent request.")
 
 audition9 = FactoryGirl.create(:audition,
                                project_id: project3.id,
@@ -171,7 +171,7 @@ audition9 = FactoryGirl.create(:audition,
 
 history = FactoryGirl.create(:history,
                              audition_id: audition9.id,
-                             action: "Diane Kerbel creates audition.")
+                             action: "Diane Kerbel sent request.")
 
 audition10 = FactoryGirl.create(:audition,
                                 project_id: project3.id,
@@ -185,4 +185,4 @@ audition10 = FactoryGirl.create(:audition,
 
 history = FactoryGirl.create(:history,
                              audition_id: audition10.id,
-                             action: "Diane Kerbel creates audition.")
+                             action: "Diane Kerbel sent request.")
