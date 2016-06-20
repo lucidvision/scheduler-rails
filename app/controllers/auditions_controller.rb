@@ -17,8 +17,6 @@ class AuditionsController < ApplicationController
 
     if params[:audition][:status] == 'CONF'
       action = "#{user.name} confirmed."
-    elsif params[:audition][:status] == 'TIME'
-      action = "#{user.name} requested new time."
     elsif params[:audition][:status] == 'REGR'
       action = "#{user.name} regretted."
     end
@@ -50,9 +48,6 @@ class AuditionsController < ApplicationController
         if audition.status == 'CONF'
           audition.response = 'confirm'
           action = "You forwarded confirm to #{director}."
-        elsif audition.status == 'TIME'
-          audition.response = 'time'
-          action = "You forwarded new time to #{director}."
         elsif audition.status == 'REGR'
           audition.response = 'regret'
           action = "You forwarded regret to #{director}."
